@@ -43,7 +43,6 @@ export const AddItem = () => {
     const [category, setcategory] = useState("");
     const [title, settitle] = useState("")
     const [price, setprice] = useState("")
-    // const [file, setfile] = useState();
     const [loading, setloading] = useState(false);
     const [open, setopen] = useState(false);
     const [message, setmessage] = useState("");
