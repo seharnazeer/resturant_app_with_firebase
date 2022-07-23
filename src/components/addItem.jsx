@@ -66,7 +66,6 @@ export const AddItem = () => {
         const upload = uploadBytesResumable(refstorage, files[0]);
 
         upload.on("state_changed", (snapshot) => {
-            // const uploadprogess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         }, (error) => {
             console.log(error);
             setopen(true);
