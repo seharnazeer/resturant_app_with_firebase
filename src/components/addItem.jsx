@@ -61,7 +61,6 @@ export const AddItem = () => {
     }
     const handleChange = ({ target: { files } }) => {
         setloading(true);
-        // setfile(URL.createObjectURL(files[0]));
         const refstorage = ref(storage, `images/${Date.now()}-${files[0].name}`);
         const upload = uploadBytesResumable(refstorage, files[0]);
 
