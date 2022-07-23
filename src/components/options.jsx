@@ -32,6 +32,7 @@ const Inner=styled(Box)(({theme})=>({
 }))
 export const Options = () => {
   const [{categorytype},dispatch]=useStatevalue();
+  console.log(categorytype);
   const updatecategory=(name)=>{
     dispatch({
       type:"SET_CAT",
