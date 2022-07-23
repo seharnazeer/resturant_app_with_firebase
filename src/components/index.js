@@ -1,0 +1,7 @@
+export {Header} from "./header.jsx"
+export {Main} from "./main.jsx"
+export {Middle} from "./middle.jsx"
+export {AddItem} from "./addItem.jsx"
+export {AllProducts} from "./allProducts"
+export {Options} from "./options"
+export {CartItems} from "./cartItems"
