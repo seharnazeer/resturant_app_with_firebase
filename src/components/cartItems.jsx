@@ -79,7 +79,7 @@ export const CartItems = ({open,setopen}) => {
         data=cartItems.filter((elem)=>elem.title!==ele.title)
         const index=cartItems.indexOf(ele);
         ele.quantity=ele.quantity+1;
-        data.splice(index,0,ele); //to insert value at the previous place where it is before updation
+        data.splice(index,0,ele); 
         dispatch({
            type:'SET_CART',
            cartItems:data
