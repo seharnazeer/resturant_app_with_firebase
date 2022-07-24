@@ -35,10 +35,9 @@ export const AllProducts = () => {
     });
   };
   const setcart = (imageassest, title, price) => {
-   !isEmpty(cartItems) && isArray(cartItems) && cartItems.map((elem) => elem.title === title ? elem.quantity > 1 ? number = elem.quantity + 1 : number = 1 : elem)
-    cartdata = !isEmpty(cartItems) && isArray(cartItems) && cartItems.filter((elem) => elem.title !== title);
-  console.log(cartdata);
-    isArray(cartItems) && cartdata.push({ imageassest, title, price, quantity: number });
+   !isEmpty(cartItems) && isArray(cartItems) && cartItems.map((elem) => elem.title === title ? elem.quantity >= 1 ? number = elem.quantity + 1 : number = 1 : elem)
+    cartdata = cartItems.filter((elem) => elem.title !== title); 
+     cartdata.push({ imageassest, title, price, quantity: number });
     localStorage.setItem("cart", JSON.stringify(cartdata));
     dispatch({
       type: "SET_CART",
