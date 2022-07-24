@@ -25,7 +25,7 @@ const Inner=styled(Box)(({theme})=>({
   justifyContent:'center',
   backgroundColor:"#FFFFFF",
   "&:hover": {
-    backgroundColor:"#F60000",
+    backgroundColor: "#F60000",
     color:'white',
     border:'2px solid #F60000',
   }
