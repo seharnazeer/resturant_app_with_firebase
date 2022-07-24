@@ -2,6 +2,7 @@ import React from 'react'
 import { Drawer,styled,Box,Typography, Button } from '@mui/material'
 import { useStatevalue } from '../context/stateProvider'
 import { Delete } from '@mui/icons-material'
+import { isArray, isEmpty } from 'lodash'
 
 const StyledBox=styled(Box)(({theme})=>({
  dislay:'flex',
@@ -90,10 +91,13 @@ export const CartItems = ({open,setopen}) => {
    <Drawer open={open} onClose={()=>setopen(!open)}>
       <StyledText variant='h4'>Cart Items</StyledText>
     <StyledBox>
-    {   cartItems.length===0?
-        <Box component="img" src="pictures/emptyCart.svg" sx={{width:'15rem',height:'20rem',objectFit:'contain',margin:'2rem 2.5rem'}} />:<>
+    {  
+    
+    isArray(cartItems) && !isEmpty(cartItems) ?
+    <>
     {
         cartItems.map((elem,i)=>{
+            console.log(elem)
             total=total+((parseInt(elem.price))*elem.quantity);
             return(
                 <InnerBox key={i}>
@@ -112,8 +116,9 @@ export const CartItems = ({open,setopen}) => {
         })
 
     }
-     <Total bgcolor={'secondary.main'} variant="h1">Total:${total}</Total>
+    <Total bgcolor={'secondary.main'} variant="h1">Total:${total}</Total>
     </>
+     :   <Box component="img" src="pictures/emptyCart.svg" sx={{width:'15rem',height:'20rem',objectFit:'contain',margin:'2rem 2.5rem'}} />
    
     }
 </StyledBox>
