@@ -65,7 +65,6 @@ export const AddItem = () => {
 
         upload.on("state_changed", (snapshot) => {
         }, (error) => {
-            console.log(error);
             setopen(true);
             settype("error");
             setmessage("File is not uploaded succesfully:Try Again :(")

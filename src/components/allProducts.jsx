@@ -7,7 +7,6 @@ import { ShoppingBasket } from '@mui/icons-material';
 import { getData } from '../utils/firebase'
 import { useState } from 'react';
 import { Options } from "./index"
-import { isArray, isEmpty } from 'lodash';
 const Styled = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexWrap: 'wrap',
@@ -35,9 +34,9 @@ export const AllProducts = () => {
     });
   };
   const setcart = (imageassest, title, price) => {
-   !isEmpty(cartItems) && isArray(cartItems) && cartItems.map((elem) => elem.title === title ? elem.quantity >= 1 ? number = elem.quantity + 1 : number = 1 : elem)
-    cartdata = cartItems.filter((elem) => elem.title !== title); 
-     cartdata.push({ imageassest, title, price, quantity: number });
+   cartItems.map((elem) => elem.title === title ? elem.quantity > 1 ? number = elem.quantity + 1 : number = 1 : elem)
+    cartdata = cartItems.filter((elem) => elem.title !== title);
+    cartdata.push({ imageassest, title, price, quantity: number });
     localStorage.setItem("cart", JSON.stringify(cartdata));
     dispatch({
       type: "SET_CART",
@@ -57,7 +56,7 @@ export const AllProducts = () => {
       <Styled>
         {display ? <CircularProgress color="secondary" /> : <>
           {
-          isArray(data) && !isEmpty(data) &&  data.map((elem, index) => {
+         data.map((elem, index) => {
               const { title, imageassest, price, category } = elem;
               return (
                 category === categorytype ? <div className="cards-data" key={index}>
@@ -78,7 +77,7 @@ export const AllProducts = () => {
                     </Box>
 
                   </div>
-                </div> : null
+                </div> : ''
               )
             }
 

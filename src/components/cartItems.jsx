@@ -97,7 +97,6 @@ export const CartItems = ({open,setopen}) => {
     <>
     {
         cartItems.map((elem,i)=>{
-            console.log(elem)
             total=total+((parseInt(elem.price))*elem.quantity);
             return(
                 <InnerBox key={i}>
