@@ -55,7 +55,7 @@ export const CartItems = ({open,setopen}) => {
     
     let data=[];
     let total=0;
-    const [{cartItems},dispatch]=useStatevalue();
+    const [{cartItems = []},dispatch]=useStatevalue();
     const deleteitem=(i)=>{
        cartItems.splice(i,1)
        dispatch({
