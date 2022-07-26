@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useStatevalue } from '../context/stateProvider.js';
 import { motion } from 'framer-motion';
 import { CartItems } from './cartItems.jsx';
-import { ShoppingBasket } from '@mui/icons-material';
+import { ShoppingBasket,DensitySmall } from '@mui/icons-material';
 
 const StyledApp = styled(Toolbar)(({ theme }) => ({
     display: "flex",
@@ -19,8 +19,30 @@ const Typographystyle = styled(Typography)({
     padding: ".6rem",
     textAlign: 'center'
 })
+const ResponsiveBox=styled(Box)(({theme})=>({
+    display:'flex',
+    [theme.breakpoints.down("md")]:{
+        padding:'2rem',
+        position:'absolute',
+        zIndex:'2',
+        backgroundColor:'white',
+        height:'100vh',
+        top:'0',
+        left:'0',
+        width:'150px',
+        flexDirection:"column",
+        boxShadow: "0 .2rem .7rem #F60000"
+    }
+}))
+const Icon=styled(Box)(({theme})=>({
+    display:'none',
+    [theme.breakpoints.down("md")]:{
+        display:'block'
+    }
+}))
 export const Header = () => {
     const [open,setopen]=useState(false);
+    const [display,setdisplay]=useState('none');
     const [{ user,cartNo }, dispatch] = useStatevalue();
     const auth = getAuth(app);
     const provider = new GoogleAuthProvider()
@@ -39,7 +61,7 @@ export const Header = () => {
 
     return (
         <>
-        <AppBar sx={{position:"static",height:"20vh", boxShadow: "0 .2rem .7rem #F60000;",}}>
+        <AppBar sx={{position:"static",height:"20vh", boxShadow: "0 .2rem .7rem #F60000",}}>
 
             <StyledApp>
                 <Box>
@@ -49,6 +71,7 @@ export const Header = () => {
                     </Box>
                 </Box>
                 <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <ResponsiveBox sx={{display:{"lg":"flex","xl":"flex", "md":"flex","sm":`${display}`,"xs":`${display}`}}}>
                     {
                         navelem.map((elem, index) => (
                             <IconButton key={index} onClick={() => navigate(elem.path)} >
@@ -58,9 +81,11 @@ export const Header = () => {
                             </IconButton>
                         ))
                     }
+                    </ResponsiveBox>
                     <Badge badgeContent={cartNo} sx={{marginRight:'.6rem'}} onClick={()=>setopen(true)}>
                         <ShoppingBasket color="secondary"/>
                     </Badge>
+                    <Icon onClick={()=>display==="none"?setdisplay("block"):setdisplay("none")}> <DensitySmall sx={{width:'2rem',height:'2rem',margin:'.6rem'}}/></Icon>
                     <motion.div
                         className="animatable"
                         whileTap={{ scale: 0.8 }}
