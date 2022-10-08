@@ -17,7 +17,8 @@ const StyledApp = styled(Toolbar)(({ theme }) => ({
 const Typographystyle = styled(Typography)({
     cursor: "pointer",
     padding: ".6rem",
-    textAlign: 'center'
+    textAlign: 'center',
+    color:"#F8B525"
 })
 const ResponsiveBox=styled(Box)(({theme})=>({
     display:'flex',
@@ -31,7 +32,7 @@ const ResponsiveBox=styled(Box)(({theme})=>({
         left:'0',
         width:'150px',
         flexDirection:"column",
-        boxShadow: "0 .2rem .7rem #F60000"
+        boxShadow: "0 .2rem .7rem #F8B525"
     }
 }))
 const Icon=styled(Box)(({theme})=>({
@@ -61,7 +62,7 @@ export const Header = () => {
 
     return (
         <>
-        <AppBar sx={{position:"static",height:"20vh", boxShadow: "0 .2rem .7rem #F60000",}}>
+        <AppBar sx={{position:"static",height:"20vh", boxShadow: "0 .2rem .7rem #F8B525",backgroundColor:"black",color:"#F8B525"}}>
 
             <StyledApp>
                 <Box>
@@ -70,11 +71,14 @@ export const Header = () => {
                         <Typography variant='h6'>Big Bite</Typography>
                     </Box>
                 </Box>
-                <Box sx={{ display: "flex", alignItems: "center" }}>
+                <Box sx={{ display: "flex", alignItems: "center"}}>
                     <ResponsiveBox sx={{display:{"lg":"flex","xl":"flex", "md":"flex","sm":`${display}`,"xs":`${display}`}}}>
                     {
                         navelem.map((elem, index) => (
-                            <IconButton key={index} onClick={() => navigate(elem.path)} >
+                            <IconButton key={index} onClick={() => elem.title!=="Menu"?navigate(elem.path):window.scrollTo({
+                                top:1200,
+                                behaviour:"smooth"
+                            })} >
                                 <Typographystyle variant="h5">
                                     {elem.title}
                                 </Typographystyle>

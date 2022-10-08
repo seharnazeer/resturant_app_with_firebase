@@ -35,7 +35,7 @@ const InnerBox=styled(Box)(({theme})=>({
     display:'flex',
     flexDirection:'row',
     backgroundColor:"#FFFFFF",
-    boxShadow: '0 .2rem .7rem #F60000',
+    boxShadow: '0 .2rem .7rem #F8B525',
     width:'19rem',
     margin:'1rem auto',
     borderRadius:'10px',

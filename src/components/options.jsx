@@ -23,11 +23,12 @@ const Inner=styled(Box)(({theme})=>({
   borderRadius:'10px',
   border:'2px solid black',
   justifyContent:'center',
-  backgroundColor:"#FFFFFF",
+  backgroundColor:"black",
+  color:"#F8B525",
   "&:hover": {
-    backgroundColor: "#F60000",
-    color:'white',
-    border:'2px solid #F60000',
+    backgroundColor: "#F8B525",
+    color:'black',
+    border:'2px solid #F8B525',
   }
 }))
 export const Options = () => {
@@ -46,7 +47,7 @@ export const Options = () => {
         Data.map((elem,i)=>(
           <Inner key={i} onClick={()=>updatecategory(elem.name)}>
           <Fastfood  sx={{width:'2rem',height:'2rem'}}/>
-          <Typography sx={{display:'block'}} >{elem.name}</Typography>
+          <Typography sx={{display:'block'}} variant="p">{elem.name}</Typography>
         </Inner>
         ))
     

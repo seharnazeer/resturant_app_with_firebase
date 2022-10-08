@@ -7,11 +7,12 @@
     width:14.5rem;
     position: relative;
     height: 8rem;
-    background-color:white;
-    border: 1.6rem solid white;
-    box-shadow: 0 .3rem .7rem #F60000;
+    background-color:rgb(0, 0, 0);
+    border: 1.6rem solid rgb(0, 0, 0);
+    box-shadow: 0 .3rem .7rem #F8B525;
     border-radius: 5px;
     cursor: pointer;
+   
     transition: .3s;
 }
 .images{
@@ -25,7 +26,7 @@
 .images img{
     width: 100%;
     border-radius: 5px;
-    box-shadow: 0 .3rem .7rem #F60000;
+    box-shadow: 0 .3rem .7rem #F8B525;
    
 }
 .content{
@@ -33,6 +34,7 @@
     transform: translateY(-8rem);
     opacity: 0;
     transition: 0.3s;
+    color: #F8B525;
 }
 .cards:hover{
     height: 15.75rem;

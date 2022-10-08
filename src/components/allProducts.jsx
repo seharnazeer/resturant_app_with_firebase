@@ -51,7 +51,7 @@ export const AllProducts = () => {
   return (
     <>
       <StyledText variant='h4'>All Products</StyledText>
-      <Options />
+      <Options  />
 
       <Styled>
         {display ? <CircularProgress color="secondary" /> : <>

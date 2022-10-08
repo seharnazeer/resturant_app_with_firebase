@@ -14,6 +14,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
     alignItems: "center",
     flexDirection: "column",
     margin: '3rem auto',
+    backgroundColor:"#232323",
     border: "2px solid lightgrey",
     [theme.breakpoints.up("sm")]: {
         width: '65vw',
@@ -85,12 +86,14 @@ export const AddItem = () => {
                     autoHideDuration={6000}
                     onClose={() => setopen(!open)}
                     message="Note archived" action={<Close onClick={() => setopen(false)} />}><Alert severity={type}>{message}</Alert></Snackbar>
-                <FormControl sx={{ width: "95%" }}>
-                    <InputLabel color="info">Select Category</InputLabel>
-                    <Select value={category} label="Select Category" color='primary' onChange={({ target }) => setcategory(target.value)}>
+                <FormControl sx={{ width: "95%"}}>
+                    <InputLabel sx={{textShadow:"2px 7px #FFFFFF",backgroundColor:"transparent",color:"#000000"}}>Select Category</InputLabel>
+                    <Select value={category} label="Select Category" color='info' sx={{backgroundColor:"#FFFFFF"}} onChange={({ target }) => setcategory(target.value)}>
                         {
                             Data.map((elem, i) => (
-                                <MenuItem value={elem.name} key={i}>{elem.name}</MenuItem>
+                                <MenuItem sx={{backgroundColor:"#000000","&:active":{
+                                    backgroundColor:"#000000"
+                                }}}value={elem.name} key={i}>{elem.name}</MenuItem>
                             ))
 
                         }
@@ -106,8 +109,8 @@ export const AddItem = () => {
 
                 </Inner>
                 <Box sx={{ width: '95%' }}>
-                    <TextField key="title" value={title} placeholder="Title" color="info" onChange={({ target: { value } }) => settitle(value)} sx={{ margin: '.6rem 0', width: '100%' }} />
-                    <TextField value={price} key="price" placeholder="Price" type="number" color="info" onChange={({ target: { value } }) => setprice(value)} sx={{ margin: '.6rem 0', width: '100%' }} />
+                    <TextField key="title" value={title} placeholder="Title" color="primary" onChange={({ target: { value } }) => settitle(value)} sx={{ margin: '.6rem 0', width: '100%',backgroundColor:"#FFFFFF"}} />
+                    <TextField value={price} key="price" placeholder="Price" type="number" color="primary" onChange={({ target: { value } }) => setprice(value)} sx={{ margin: '.6rem 0', width: '100%',backgroundColor:"#FFFFFF" }} />
                 </Box>
                 <Button sx={{ width: '95%' }} variant="contained" color="secondary" onClick={() => title === "" || price === "" || category === "" ? alert("All fields are required") : Upload()}>Add Item</Button>
             </StyledBox>
