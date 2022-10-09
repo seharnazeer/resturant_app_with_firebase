@@ -3,9 +3,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import Theme from "./theme";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import React, { useRef } from "react";
+import React from "react";
 function App() {
-  const Data = (menuRef) => {
+  const Data = () => {
     return (
       <>
         

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box,styled,Grid} from "@mui/material"
+import {Box,Grid} from "@mui/material"
 import "./styles/about.css"
 export const About = () => {
   return (
@@ -12,7 +12,7 @@ export const About = () => {
             </Grid>
             <Grid xs={12} md={4} p={0} >
                 <Box className="about-picture">
-              <img src="pictures/about/about-one.png" />
+              <img src="pictures/about/about-one.png" alt="chicken"/>
               </Box>
             </Grid>
 
@@ -20,7 +20,7 @@ export const About = () => {
         <Grid container spacing={3} mt={5} direction={{md:"column-reverse",sm:"column-reverse",xs:"column-reverse",lg:"row",xl:"row"}}  sx={{alignItems:"center",justifyContent:"center"}}>
         <Grid xs={12} md={4} p={0} >
                 <Box className="about-picture">
-              <img src="pictures/about/about-two.png" />
+              <img src="pictures/about/about-two.png" alt="food" />
               </Box>
             </Grid>
             <Grid xs={10} md={4} className="about-content" p={7} >
